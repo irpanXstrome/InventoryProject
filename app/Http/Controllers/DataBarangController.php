@@ -31,6 +31,13 @@ class DataBarangController extends Controller
             "id_barang" => $id_barang
         ]);
     }
+
+    public function addIndex()
+    {
+        return view("barang_add",[
+            "title" => "Tambah Data",
+        ]);
+    }
     public function modify($id_barang,Request $request)
     {
         $barang = Barang::all()->find($id_barang);
@@ -43,6 +50,20 @@ class DataBarangController extends Controller
             "sumber_dana" => "required",
         ]);
         $barang->update($validData);
+        return redirect("/barang");
+    }
+
+    public function add(Request $request)
+    {
+        $validData = $request->validate([
+            "nama_barang" => "required",
+            "spesifikasi" => "required",
+            "lokasi" => "required",
+            "kondisi" => "required",
+            "jumlah_barang" => "required|numeric",
+            "sumber_dana" => "required",
+        ]);
+        Barang::query()->create($validData);
         return redirect("/barang");
     }
 

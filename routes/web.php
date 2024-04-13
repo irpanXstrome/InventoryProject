@@ -23,6 +23,8 @@ Route::redirect("/","dashboard");
 Route::get("/dashboard",[DashboardController::class,"index"]);
 Route::get("/barang",[DataBarangController::class,"index"]);
 Route::post("/barang/delete",[DataBarangController::class,"delete"]);
+Route::get("/barang/add",[DataBarangController::class,"addIndex"]);
+Route::post("/barang/add",[DataBarangController::class,"add"]);
 Route::get("/barang/edit/{id_barang}",[DataBarangController::class,"modifyIndex"]);
 Route::post("/barang/edit/{id_barang}",[DataBarangController::class,"modify"]);
 

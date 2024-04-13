@@ -34,6 +34,7 @@
 </style>
 @section('view')
     <h1>{{ $title }}</h1>
+    <a href="/barang/add" class="small-button">Tambah Data</a>
     <table>
         <tr>
             <th>ID</th>
