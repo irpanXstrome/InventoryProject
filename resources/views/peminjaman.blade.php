@@ -58,17 +58,20 @@
                     <td style="color: #9ca3af">Ended</td>
                 @endif
                 <td>{{$peminjaman->total_denda}}</td>
-                @if(($barang = \App\Models\Barang::query()->find($peminjaman->id_barang)) != null)
+                {{-- @if(($barang = \App\Models\Barang::query()->find($peminjaman->id_barang)) != null)
                     <td>{{$barang->nama_barang}}</td>
                 @else
                     <td style="color: red">Unknown Data</td>
-                @endif
+                @endif --}}
 
-                @if($barang = \App\Models\User::all()->find($peminjaman->id_user) != null)
+                <td>{{ $peminjaman->barang->nama_barang ?? 'Unknown Data' }}</td>
+
+                {{-- @if($barang = \App\Models\User::all()->find($peminjaman->id_user) != null)
                     <td>{{\App\Models\User::all()->find($peminjaman->id_user)->nama}}</td>
                 @else
                     <td style="color: red">Unknown User</td>
-                @endif
+                @endif --}}
+                <td>{{ $peminjaman->user->nama ?? 'Unknown User' }}</td>
                 <td>
                     <form action="/peminjaman/delete" method="post">
                         @csrf
