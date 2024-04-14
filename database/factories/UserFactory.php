@@ -26,6 +26,7 @@ class UserFactory extends Factory
         $faker = fake();
         return [
             'nama' => $faker->name(),
+            'is_admin' => $faker->boolean,
             'alamat' => $faker->streetAddress(),
             'no_telepon' => $faker->phoneNumber(),
             'username' => $faker->userName,
