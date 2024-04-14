@@ -29,6 +29,8 @@ Route::get("/barang/edit/{id_barang}",[DataBarangController::class,"modifyIndex"
 Route::post("/barang/edit/{id_barang}",[DataBarangController::class,"modify"]);
 
 Route::get("/peminjaman",[PeminjamanController::class,"index"]);
+Route::get("/peminjaman/add",[PeminjamanController::class,"addIndex"]);
+Route::post("/peminjaman/add",[PeminjamanController::class,"add"]);
 //Route::post("/peminjaman/delete",[PeminjamanController::class,"delete"]);
 //Route::get("/peminjaman/edit",[PeminjamanController::class,"modifyIndex"]);
 //Route::post("/peminjaman/edit",[PeminjamanController::class,"modify"]);

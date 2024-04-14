@@ -30,6 +30,10 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function peminjaman(){
+        return $this->hasMany(Peminjaman::class);
+    }
+
     /**
      * The attributes that should be cast.
      *

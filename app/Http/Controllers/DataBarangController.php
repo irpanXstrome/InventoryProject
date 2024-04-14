@@ -38,6 +38,7 @@ class DataBarangController extends Controller
             "title" => "Tambah Data",
         ]);
     }
+
     public function modify($id_barang,Request $request)
     {
         $barang = Barang::all()->find($id_barang);
@@ -56,11 +57,11 @@ class DataBarangController extends Controller
     public function add(Request $request)
     {
         $validData = $request->validate([
-            "nama_barang" => "required",
-            "spesifikasi" => "required",
+            "nama_barang" => "required|min:3",
+            "spesifikasi" => "required|min:3",
             "lokasi" => "required",
-            "kondisi" => "required",
-            "jumlah_barang" => "required|numeric",
+            "kondisi" => "required|min:4",
+            "jumlah_barang" => "required|numeric|min:1",
             "sumber_dana" => "required",
         ]);
         Barang::query()->create($validData);

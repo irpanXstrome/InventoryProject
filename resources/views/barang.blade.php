@@ -46,9 +46,9 @@
             <th>Sumber Dana</th>
             <th>Aksi</th>
         </tr>
-        @foreach($data as $barang)
+        @foreach($data as $id => $barang)
             <tr>
-                <td>{{$barang->id}}</td>
+                <td>{{$id+1}}</td>
                 <td>{{$barang->nama_barang}}</td>
                 <td>{{$barang->spesifikasi}}</td>
                 <td>{{$barang->lokasi}}</td>
