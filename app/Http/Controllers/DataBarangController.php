@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Barang;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class DataBarangController extends Controller
 {
@@ -13,7 +12,7 @@ class DataBarangController extends Controller
      */
     public function index()
     {
-        return view("barang",[
+        return view("final.barang_interface.barang",[
             "title" => "Data Barang",
             "data" => Barang::all()
         ]);
@@ -22,19 +21,19 @@ class DataBarangController extends Controller
     public function modifyIndex($id_barang)
     {
 
-        $barang = Barang::all()->find($id_barang);
+        $barang = Barang::query()->find($id_barang);
         if(is_null($barang)){
             return redirect("/barang");
         }
-        return view("barang_edit",[
+        return view("final.barang_interface.barang_edit",[
             "title" => "Edit Data ".$barang->nama_barang,
-            "id_barang" => $id_barang
+            "barang" => $barang
         ]);
     }
 
     public function addIndex()
     {
-        return view("barang_add",[
+        return view("final.barang_interface.barang_add",[
             "title" => "Tambah Data",
         ]);
     }
@@ -43,11 +42,11 @@ class DataBarangController extends Controller
     {
         $barang = Barang::all()->find($id_barang);
         $validData = $request->validate([
-            "nama_barang" => "required",
-            "spesifikasi" => "required",
+            "nama_barang" => "required|min:3",
+            "spesifikasi" => "required|min:3",
             "lokasi" => "required",
-            "kondisi" => "required",
-            "jumlah_barang" => "required|numeric",
+            "kondisi" => "required:numeric",
+            "jumlah_barang" => "required|numeric|min:1",
             "sumber_dana" => "required",
         ]);
         $barang->update($validData);
@@ -60,7 +59,7 @@ class DataBarangController extends Controller
             "nama_barang" => "required|min:3",
             "spesifikasi" => "required|min:3",
             "lokasi" => "required",
-            "kondisi" => "required|min:4",
+            "kondisi" => "required:numeric",
             "jumlah_barang" => "required|numeric|min:1",
             "sumber_dana" => "required",
         ]);
