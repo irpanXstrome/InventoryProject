@@ -50,7 +50,7 @@
     </style>
     <h1>{{ $title }}</h1>
     <div class="container">
-        <form action="/barang/edit/{{$id_barang}}" method="post">
+        <form action="/barang/edit/{{$id_peminjaman}}" method="post">
             @csrf
             <div class="form-group">
                 <label for="nama_barang">Nama:</label>
