@@ -21,6 +21,10 @@ class User extends Authenticatable
         ["id"]
     ];
 
+    public function isAdmin(): bool{
+        return $this->is_admin;
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -34,13 +38,17 @@ class User extends Authenticatable
         return $this->hasMany(Peminjaman::class);
     }
 
+    public function setDataAttribute($data)
+    {
+        $this->attributes['data'] = json_encode($data);
+    }
+
     /**
      * The attributes that should be cast.
      *
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
 }

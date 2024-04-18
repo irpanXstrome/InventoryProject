@@ -1,0 +1,45 @@
+body {
+  background-color: white;
+  color: black;
+}
+
+.login-form {
+  width: 500px;
+  background-color: white; /* Menambahkan warna putih pada kotak */
+  padding: 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); /* Menambahkan efek bayangan */
+}
+
+.form-group {
+  font-size: 12px;
+}
+
+.form-control {
+  font-size: 16px;
+}
+
+.btn-primary {
+  background-color: #87CEFA;
+  border-color: #87CEFA;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.btn-primary:hover {
+  background-color: #4682B4;
+  border-color: #4682B4;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(45deg, #8CB9BD, #FFF);
+  z-index: -1;
+  pointer-events: none;
+}
