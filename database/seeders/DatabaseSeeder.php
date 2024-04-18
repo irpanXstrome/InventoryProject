@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Barang;
 use App\Models\Peminjaman;
+use App\Models\PeminjamanLog;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Number;
@@ -27,5 +28,6 @@ class DatabaseSeeder extends Seeder
         User::factory(3)->create();
         Barang::factory(5)->create();
         Peminjaman::factory(5)->create();
+        PeminjamanLog::factory(5)->create();
     }
 }

@@ -43,7 +43,7 @@
                    placeholder="Jumlah Barang" value="{{$barang->jumlah_barang}}">
         </div>
         <div style="display: flex;">
-            <a href="barang/" class="btn btn-secondary btn-icon-split">
+            <a href="/barang/" class="btn btn-secondary btn-icon-split">
             <span class="icon text-white-50">
                 <i class="fas fa-arrow-left"></i>
             </span>
