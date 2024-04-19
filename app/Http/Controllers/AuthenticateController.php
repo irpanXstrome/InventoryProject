@@ -48,8 +48,8 @@ class AuthenticateController extends Controller
             "password" => "required|confirmed|min:3",
         ]);
         $validData["password"] = Hash::make($validData["password"]);
-        DB::table("users")->updateOrInsert($validData);
-        
+        User::create($validData);
+
         return redirect('/login');
     }
 
